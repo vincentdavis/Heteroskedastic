@@ -13,4 +13,5 @@ whitenoise==6.4.0
 # Custom packages
 pip==23.1.1
 django==4.2
+backports.zoneinfo;python_version<"3.9"
 pyfitness
