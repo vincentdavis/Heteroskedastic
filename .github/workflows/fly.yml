@@ -3,10 +3,10 @@ on:
   push:
     branches:
       - deploy
-  jobs:
-    deploy:
-      name: Deploy app
-      runs-on: ubuntu-latest
+jobs:
+  deploy:
+    name: Deploy app
+    runs-on: ubuntu-latest
 steps:
         - uses: actions/checkout@v3
         - uses: superfly/flyctl-actions/setup-flyctl@master
