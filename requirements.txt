@@ -1,0 +1,4 @@
+
+pip==23.1.1
+django>=4.2
+pyfitness
