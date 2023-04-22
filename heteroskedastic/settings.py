@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-*w*4&-d$s#1)6-(p#z*+#7tqj5joycu^h!u2i=py^#l+0+3d0m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['heteroskedastic.fly.dev', 'localhost', '']
+ALLOWED_HOSTS = ['heteroskedastic.fly.dev', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = "heteroskedastic.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ['templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
