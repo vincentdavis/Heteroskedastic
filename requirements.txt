@@ -1,6 +1,5 @@
 # defined for DO apps
 asgiref==3.6.0
-backports.zoneinfo==0.2.1
 dj-database-url==1.3.0
 gunicorn==20.1.0
 psycopg2-binary==2.9.6
@@ -13,5 +12,4 @@ whitenoise==6.4.0
 # Custom packages
 pip==23.1.1
 django==4.2
-backports.zoneinfo;python_version<"3.9"
 pyfitness
