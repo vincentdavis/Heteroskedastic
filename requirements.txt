@@ -7,9 +7,13 @@ sqlparse==0.4.4
 whitenoise==6.4.0
 
 # utility packages
-# pur
+pur==7.1.0
 
 # Custom packages
 pip==23.1.1
 django==4.2
-pyfitness
+pyfitness==0.2.1
+django-upgrade==1.13
+
+# html/css/js packages
+crispy-bootstrap5==0.7
