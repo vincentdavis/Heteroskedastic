@@ -11,7 +11,7 @@ pur==7.1.0
 
 # Custom packages
 pip==23.1.1
-django==4.2
+django==4.2.1
 pyfitness==0.2.1
 django-upgrade==1.13
 
