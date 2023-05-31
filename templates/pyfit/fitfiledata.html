@@ -1,0 +1,21 @@
+{% extends "base/index.html" %}
+{% block content %}
+  <div>Upload a fit file and the data will be displayed below</div>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">
+      upload
+    </button>
+  </form>
+  <div>
+  {% if data %}
+  <div>
+    {{ data|safe }}
+  </div>
+    {% else %}
+    <div>no data</div>
+  {% endif %}
+  </div>
+
+{% endblock %}

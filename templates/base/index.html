@@ -1,0 +1,23 @@
+{#https://startbootstrap.com/template/sb-admin#}
+{#https://github.com/StartBootstrap/startbootstrap-sb-admin#}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% include "base/header.html" %}
+<body class="sb-nav-fixed">
+{% include "nav/navbar.html" %}
+<div id="layoutSidenav">
+  {% include "nav/sidenav.html" %}
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid px-4">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </main>
+    {% include "footer.html" %}
+  </div>
+</div>
+{% include "scripts.html" %}
+</body>
+</html>
