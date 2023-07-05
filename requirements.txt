@@ -13,7 +13,7 @@ ruff==0.0.270
 
 # Custom packages
 pip==23.1.2
-django==4.2.1
+django==4.2.3
 pyfitness==0.2.1
 django-upgrade==1.13
 # django-markdownify==0.9.3
