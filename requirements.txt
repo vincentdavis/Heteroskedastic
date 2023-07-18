@@ -1,21 +1,23 @@
 # defined for DO apps
 asgiref==3.7.2
 dj-database-url==2.0.0
-gunicorn==20.1.0
+gunicorn==21.1.0
 psycopg2-binary==2.9.6
 sqlparse==0.4.4
-whitenoise==6.4.0
+whitenoise==6.5.0
 
 # Code Quality
 pur==7.1.0
-black==23.3.0
-ruff==0.0.270
+black==23.7.0
+ruff==0.0.278
 
 # Custom packages
-pip==23.1.2
-django==4.2.1
+pip==23.2
+django==4.2.3
+django-upgrade==1.14.0
 pyfitness==0.2.1
-django-upgrade==1.13
+itables==1.5.3
+
 # django-markdownify==0.9.3
 Markdown==3.4.3
 

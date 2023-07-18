@@ -1,7 +1,11 @@
+import csv
+import itertools
+
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .forms import FitFileUpload
-from pyfitness.load_data import fitfileinfo
+from pyfitness.load_data import fitfileinfo, fit2csv, fit2df
 
 import markdown
 
@@ -27,11 +31,26 @@ class FitFileData(TemplateView):
         form = FitFileUpload(self.request.POST, self.request.FILES)
         if form.is_valid():
             print("valid form")
-            fit_file = self.request.FILES["fit_file"]
+            fit_file = self.request.FILES["fit_file"].read()
+
+
             data = fitfileinfo(fit_file)
             html = markdown.markdown(data)
-            print(html)
-            context['data'] = html
+            context['fileinfo'] = html
+            if self.request.POST.get('export_csv', None):
+                print("export csv")
+                response = HttpResponse(content_type='text/csv')
+                response['Content-Disposition'] = 'attachment; filename="fitfile.csv"'
+                writer = csv.writer(response)
+                for row in data:
+                    writer.writerow(row)
+                # return response
+            df = fit2df(fit_file)
+            data_csv = csv.DictReader(fit2csv(df).decode("utf-8").splitlines())
+            context['csv_header'] = data_csv.fieldnames
+            print(context['csv_header'])
+            context['csv_data'] = [ [v for v in row.values()] for row in itertools.islice(data_csv, 50)]
+            # print(context['csv_data'])
             context['form'] = FitFileUpload()
         return render(self.request, self.template_name, context)
 
