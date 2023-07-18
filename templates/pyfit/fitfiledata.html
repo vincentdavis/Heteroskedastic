@@ -1,21 +1,56 @@
 {% extends "base/index.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-  <div>Upload a fit file and the data will be displayed below</div>
+<script
+			  src="https://code.jquery.com/jquery-3.7.0.min.js"
+			  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+			  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css"/>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+  <div>Upload a fit file</div>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <button type="submit">
       upload
     </button>
   </form>
   <div>
-  {% if data %}
-  <div>
-    {{ data|safe }}
-  </div>
+    {% if fileinfo %}
+      <div>
+        {{ fileinfo|safe }}
+      </div>
     {% else %}
-    <div>no data</div>
-  {% endif %}
+      <div>no data</div>
+    {% endif %}
+    <div>
+      <table id='table_id_1' , class="display">
+        <thead>
+        <tr>
+          {% for h in csv_header %}
+            <th>{{ h }}</th>
+          {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in csv_data %}
+
+          <tr>
+            {% for cell in row %}
+              <td>{{ cell }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <script>
+              $(document).ready( function () {
+              $('#table_id_1').dataTable();
+          } );
+      </script>
+    </div>
   </div>
 
 {% endblock %}
